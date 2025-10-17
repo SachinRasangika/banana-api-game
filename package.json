@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "dev": "concurrently \"npm start --prefix backend\" \"npm start --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^9.2.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.4",
+    "source-map-loader": "^5.0.0",
+    "style-loader": "^4.0.0"
+  }
+}
