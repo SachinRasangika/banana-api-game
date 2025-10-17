@@ -123,6 +123,8 @@ router.post('/submit', authMiddleware, async (req, res) => {
       timestamp: new Date(),
     });
 
+    let earnedAchievements = [];
+
     if (isCorrect) {
       user.points += puzzle.points;
       user.missionsCompleted += 1;
@@ -155,7 +157,7 @@ router.post('/submit', authMiddleware, async (req, res) => {
       }
 
       // Check for achievements
-      const earnedAchievements = checkAndAwardAchievements(user);
+      earnedAchievements = checkAndAwardAchievements(user);
       earnedAchievements.forEach(achievement => {
         gameEventEmitter.emitAchievementEarned(req.userId, achievement.id, achievement.name);
       });
